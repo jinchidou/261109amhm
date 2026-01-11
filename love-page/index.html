@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>阿铭和黑毛的小世界</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: url('阿铭和黑毛.png') no-repeat center center fixed;
+            background-size: cover;
+            font-family: 'PingFang SC', 'Microsoft YaHei', sans-serif;
+            padding: 20px;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 3.5em;
+            color: #e9d5ff;
+            margin-top: 10vh;
+            margin-bottom: 10px;
+            font-weight: bold;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+        }
+
+        .subtitle {
+            font-size: 1.3em;
+            color: #fff;
+            margin-bottom: 40px;
+            font-weight: bold;
+            text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5);
+        }
+
+        .timer {
+            background: rgba(255, 255, 255, 0.85);
+            color: #333;
+            padding: 25px 40px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .timer-text {
+            font-size: 1.4em;
+            margin-bottom: 10px;
+        }
+
+        .days {
+            font-size: 3.5em;
+            font-weight: bold;
+            color: #FF9800;
+            text-shadow: none;
+        }
+
+        .hearts {
+            margin-bottom: 25px;
+        }
+
+        .heart {
+            display: inline-block;
+            color: #fff;
+            font-size: 2.5em;
+            animation: pulse 1s ease-in-out infinite;
+            margin: 0 15px;
+            text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5);
+        }
+
+        .heart:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .heart:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.2);
+            }
+        }
+
+        .anniversary {
+            color: #fff;
+            font-size: 1em;
+            font-weight: bold;
+            text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5);
+        }
+    </style>
+</head>
+<body>
+    <h1>阿铭和黑毛的小世界</h1>
+    <p class="subtitle">好看的Figure千篇一律，有趣的故事万里挑一</p>
+
+    <div class="hearts">
+        <span class="heart">💕</span>
+        <span class="heart">💕</span>
+        <span class="heart">💕</span>
+    </div>
+
+    <div class="timer">
+        <p class="timer-text">我们已经在一起 <span class="days" id="daysCount">0</span> 天啦</p>
+    </div>
+
+    <p class="anniversary">纪念日：2025年11月9日 💗</p>
+
+    <script>
+        function calculateDays() {
+            const startDate = new Date('2025-11-09');
+            const today = new Date();
+            today.setHours(0, 0, 0, 0);
+
+            const diffTime = today - startDate;
+            const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+
+            return diffDays;
+        }
+
+        document.getElementById('daysCount').textContent = calculateDays();
+    </script>
+</body>
+</html>
